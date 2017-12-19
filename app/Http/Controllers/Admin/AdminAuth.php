@@ -44,8 +44,8 @@ class AdminAuth extends Controller
       if(Auth::guard('admin')->attempt(['email' => $request['email'], 'password' => $request['password']], $request['remember'])){
         return view('admin.dashboard');
       }
-      //return view('admin.login');
-      return redirect()->back()->withInput($request->only('email', 'remember'));
+      return view('admin.login');
+    //  return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout()
