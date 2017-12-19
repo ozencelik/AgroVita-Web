@@ -12,14 +12,14 @@ class CreateCommercialInformationTable extends Migration
      */
     public function up()
     {
-      Schema::create('commercial_information', function (Blueprint $table) {
-          $table->increments('comID');
+      Schema::create('commercial_informations', function (Blueprint $table) {
+          $table->increments('id');
           $table->integer('userID');
           $table->integer('comRNo');
           $table->integer('chamberComNo');
           $table->integer('taxID');
-
-
+          $table->rememberToken();
+          $table->timestamps();
 
 
       });

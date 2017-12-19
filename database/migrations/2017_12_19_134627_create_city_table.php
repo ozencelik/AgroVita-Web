@@ -12,10 +12,12 @@ class CreateCityTable extends Migration
      */
     public function up()
     {
-      Schema::create('city', function (Blueprint $table) {
-          $table->increments('cityID');
+      Schema::create('cities', function (Blueprint $table) {
+          $table->increments('id');
           $table->string('cityName');
-          
+          $table->rememberToken();
+          $table->timestamps();
+
 
       });
     }

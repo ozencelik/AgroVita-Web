@@ -12,17 +12,18 @@ class CreateAdvertisementTable extends Migration
      */
     public function up()
     {
-   Schema::create('advertisement', function (Blueprint $table) {
-    $table->increments('advID');
-    $table->string('sectorName');
-    $table->string('advType');
-    $table->string('advTitle');
-    $table->string('advExplanation');
-    $table->integer('sectorID');
-    $table->integer('unitID');
-    $table->year('close_year');
-    $table->year('start_year');
-
+   Schema::create('advertisements', function (Blueprint $table) {
+      $table->increments('id');
+      $table->string('sectorName');
+      $table->string('advType');
+      $table->string('advTitle');
+      $table->string('advExplanation');
+      $table->integer('sectorID');
+      $table->integer('unitID');
+      $table->year('close_year');
+      $table->year('start_year');
+      $table->rememberToken();
+      $table->timestamps();
 });
     }
 

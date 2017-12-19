@@ -12,10 +12,11 @@ class CreateUserTypeTable extends Migration
      */
     public function up()
     {
-      Schema::create('user_type', function (Blueprint $table) {
-
-        $table->increments('usertypeID');
+      Schema::create('user_types', function (Blueprint $table) {
+        $table->increments('id');
         $table->string('userTypeName');
+        $table->rememberToken();
+        $table->timestamps();
 
     });
     }

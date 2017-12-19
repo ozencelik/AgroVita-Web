@@ -13,11 +13,13 @@ class CreateAdvertisementWinTable extends Migration
     public function up()
     {
       Schema::create('AdvertisementWin', function (Blueprint $table) {
-      $table->integer('advID');
-      $table->increments('awID');
-      $table->integer('winUserID');
-      $table->double('winAmount', 8, 2);
-      $table->year('win_year');
+        $table->increments('id');
+        $table->integer('advID');
+        $table->integer('winUserID');
+        $table->double('winAmount', 8, 2);
+        $table->year('win_year');
+        $table->rememberToken();
+        $table->timestamps();
       });
     }
 

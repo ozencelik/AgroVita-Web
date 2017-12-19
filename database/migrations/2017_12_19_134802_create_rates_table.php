@@ -13,9 +13,11 @@ class CreateRatesTable extends Migration
     public function up()
     {
       Schema::create('rates', function (Blueprint $table) {
-          $table->increments('rateID');
+          $table->increments('id');
           $table->integer('ratedUserID');
           $table->year('date');
+          $table->rememberToken();
+          $table->timestamps();
 
 
       });

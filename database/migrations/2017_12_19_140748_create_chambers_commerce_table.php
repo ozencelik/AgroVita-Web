@@ -12,10 +12,12 @@ class CreateChambersCommerceTable extends Migration
      */
     public function up()
     {
-      Schema::create('chambers_commerce', function (Blueprint $table) {
-          $table->increments('chamID');
+      Schema::create('chambers_commerces', function (Blueprint $table) {
+          $table->increments('id');
           $table->integer('cityID');
           $table->string('chamName');
+          $table->rememberToken();
+          $table->timestamps();
 
       });
     }
