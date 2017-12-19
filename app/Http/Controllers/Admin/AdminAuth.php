@@ -38,23 +38,23 @@ class AdminAuth extends Controller
 
     public function login(Request $request)
     {
-      // if(Auth::guard('admin')->check()){
-      //   return redirect('/admin/dashboard');
-      // }
+
       if(Auth::guard('admin')->attempt(['email' => $request['email'], 'password' => $request['password']], $request['remember'])){
-        return view('admin.dashboard');
+
+        $admin = DB::table('admins')->where('email', $request['email'])->first();
+        return view('admin.dashboard', ['admin' => $admin]);
       }
-      //return view('admin.login');
-      return redirect()->back()->withInput($request->only('email', 'remember'));
+      return view('admin.login');
+      //return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout()
     {
-      echo 'Logouta giriyor mu ?';
+
       if(Auth::guard('admin')->logout()){
         return redirect('/admin/login');
       }
-      return redirect('/admin/login');
+      return redirect('admin/dashboard');
     }
 
 
@@ -68,7 +68,6 @@ class AdminAuth extends Controller
       $email =  $request->input('email');
       $password =  bcrypt($request->input('password'));
 
-      echo 'FNameee : ',$email;
       $admin = new Admin();
       $admin->firstname = $fname;
       $admin->lastname = $lname;
@@ -85,7 +84,7 @@ class AdminAuth extends Controller
                       */
 
 
-      return view('admin.dashboard', ['admins' => $admin]);
+      return view('admin.dashboard', ['admin' => $admin]);
     }
 
 
