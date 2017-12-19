@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //Route::auth(); //C:\xampp\htdocs\Agrovita\vendor\laravel\framework\src\Illuminate\Routing\Router.php
 // Authentication Routes...
 Route::get('login', 'Auth\AuthController@showLoginForm');
