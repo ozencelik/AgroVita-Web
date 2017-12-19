@@ -46,6 +46,7 @@ class AdminAuth extends Controller
       }
       return view('admin.login');
       //return redirect()->back()->withInput($request->only('email', 'remember'));
+
     }
 
     public function logout()
