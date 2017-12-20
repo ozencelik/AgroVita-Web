@@ -17,7 +17,7 @@ class CreateAdvertisementWinTable extends Migration
         $table->integer('advID');
         $table->integer('winUserID');
         $table->double('winAmount', 8, 2);
-        $table->year('win_year');
+        $table->date('win_year');
         $table->rememberToken();
         $table->timestamps();
       });

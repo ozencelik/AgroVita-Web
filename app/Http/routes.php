@@ -71,7 +71,7 @@ Route::get('profile', [
 ]);
 //Route::auth(); //C:\xampp\htdocs\Agrovita\vendor\laravel\framework\src\Illuminate\Routing\Router.php
 // Authentication Routes...
-Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::get('/login', 'Auth\AuthController@showLoginForm');
 Route::post('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout');
 

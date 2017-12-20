@@ -17,7 +17,7 @@ class CreateOfferActionsTable extends Migration
         $table->integer('offerID');
         $table->string('confirmation');
         $table->double('offerAmount', 8, 2);
-        $table->year('offer_year');
+        $table->date('offer_year');
         $table->rememberToken();
         $table->timestamps();
     });
