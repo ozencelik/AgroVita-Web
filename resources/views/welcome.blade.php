@@ -7,9 +7,28 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Welcome</div>
 
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
+                  <table class="table">
+                    <tr>
+                      <td>First name</td>
+                      <td>Last Name</td>
+                      <td>Email</td>
+                    </tr>
+
+
+                    <?php
+                    foreach ($users as $user) { ?>
+                      <tr>
+                        <td><?php echo $user->fname ?></td>
+                        <td><?php echo $user->lname ?></td>
+                        <td><?php echo $user->email ?></td>
+                      </tr>
+
+
+                    <?php
+                    }
+                    ?>
+
+                  </table>
             </div>
         </div>
     </div>

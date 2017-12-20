@@ -26,9 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $users = DB::select('select * from users');
-
+      //$users = DB::select('call getUsers');
+      $users = DB::select('call AdminUserJoin');
       return view('home', ['users' => $users]);
+    }
+
+    public function welcome()
+    {
+      $users = DB::select('select * from viewadmins');
+      return view('welcome', ['users' => $users]);
     }
 
     public function getProfile() {
