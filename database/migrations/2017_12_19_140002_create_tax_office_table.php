@@ -12,11 +12,13 @@ class CreateTaxOfficeTable extends Migration
      */
     public function up()
     {
-      Schema::create('tax_office', function (Blueprint $table) {
-          $table->increments('taxID');
+      Schema::create('tax_offices', function (Blueprint $table) {
+          $table->increments('id');
           $table->integer('cityID');
           $table->string('taxName');
-        
+          $table->rememberToken();
+          $table->timestamps();
+
       });
     }
 

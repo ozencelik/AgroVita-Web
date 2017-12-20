@@ -12,10 +12,12 @@ class CreateDistrictTable extends Migration
      */
     public function up()
     {
-      Schema::create('district', function (Blueprint $table) {
-          $table->increments('districtID');
+      Schema::create('districts', function (Blueprint $table) {
+          $table->increments('id');
           $table->string('districtName');
           $table->integer('townID');
+          $table->rememberToken();
+          $table->timestamps();
 
 
       });

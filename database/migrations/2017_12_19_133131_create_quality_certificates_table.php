@@ -13,8 +13,10 @@ class CreateQualityCertificatesTable extends Migration
     public function up()
     {
       Schema::create('quality_certificates', function (Blueprint $table) {
-          $table->increments('certificateID');
+          $table->increments('id');
           $table->string('certificateName');
+          $table->rememberToken();
+          $table->timestamps();
 
       });
     }

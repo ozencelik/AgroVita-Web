@@ -12,12 +12,14 @@ class CreateContactInformationTable extends Migration
      */
     public function up()
     {
-      Schema::create('contact_information', function (Blueprint $table) {
-          $table->increments('contactID');
+      Schema::create('contact_informations', function (Blueprint $table) {
+          $table->increments('id');
           $table->string('webAddress');
           $table->string('fax');
           $table->integer('phoneNumber')->unique();
-        
+          $table->rememberToken();
+          $table->timestamps();
+
       });
     }
 

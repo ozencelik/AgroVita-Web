@@ -13,8 +13,11 @@ class CreateSectorsTable extends Migration
     public function up()
     {
       Schema::create('sectors_table', function (Blueprint $table) {
+        $table->increments('id');
         $table->string('sectorName');
-        $table->increments('sectorID');
+        $table->integer('commentID');
+        $table->rememberToken();
+        $table->timestamps();
     });
     }
 

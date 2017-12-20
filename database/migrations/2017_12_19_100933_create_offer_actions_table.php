@@ -13,11 +13,13 @@ class CreateOfferActionsTable extends Migration
     public function up()
     {
       Schema::create('offerAction', function (Blueprint $table) {
-      $table->increments('offerAcID');
-      $table->integer('offerID');
-      $table->string('confirmation');
-      $table->double('offerAmount', 8, 2);
-      $table->year('offer_year');
+        $table->increments('id');
+        $table->integer('offerID');
+        $table->string('confirmation');
+        $table->double('offerAmount', 8, 2);
+        $table->year('offer_year');
+        $table->rememberToken();
+        $table->timestamps();
     });
     }
 

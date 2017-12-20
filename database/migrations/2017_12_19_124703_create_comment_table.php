@@ -12,9 +12,11 @@ class CreateCommentTable extends Migration
      */
     public function up()
     {
-      Schema::create('comment', function (Blueprint $table) {
-        $table->string('unitName');
+      Schema::create('comments', function (Blueprint $table) {
         $table->increments('commentID');
+        $table->string('unitName');
+        $table->rememberToken();
+        $table->timestamps();
     });
     }
 
