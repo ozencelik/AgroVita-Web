@@ -12,8 +12,8 @@ class CreateSaleManagerTable extends Migration
      */
     public function up()
     {
-      Schema::create('sales_manager', function (Blueprint $table) {
-          $table->increments('salesID');
+      Schema::create('sales_managers', function (Blueprint $table) {
+          $table->increments('id');
           $table->string('sName');
           $table->string('email')->unique();
           $table->integer('userID');

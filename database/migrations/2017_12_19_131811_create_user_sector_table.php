@@ -12,11 +12,12 @@ class CreateUserSectorTable extends Migration
      */
     public function up()
     {
-      Schema::create('user_sector', function (Blueprint $table) {
-
-        $table->increments('userSectorID');
+      Schema::create('user_sectors', function (Blueprint $table) {
+        $table->increments('id');
         $table->integer('userID');
         $table->integer('proTypeID');
+        $table->rememberToken();
+        $table->timestamps();
     });
     }
 
