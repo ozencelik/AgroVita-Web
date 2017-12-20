@@ -30,6 +30,13 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
+            <!-- @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif -->
             <form method="POST" action="{{ url('/admin/login') }}">
               {{ csrf_field() }}
               <h1>Login Form</h1>
