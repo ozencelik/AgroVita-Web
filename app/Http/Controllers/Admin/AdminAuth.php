@@ -50,11 +50,13 @@ class AdminAuth extends Controller
 
       if(Auth::guard('admin')->attempt(['email' => $request['email'], 'password' => $request['password']], $request['remember'])){
 
+        $email =  $request['email'];
         $admin = DB::table('admins')->where('email', $request['email'])->first();
+
+        //$admin = DB::select('CALL getAdmin(?)',[$request->email]);
         return view('admin.dashboard', ['admin' => $admin]);
       }
       return view('admin.login');
-      //return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout()
@@ -85,21 +87,23 @@ class AdminAuth extends Controller
       $email =  $request->input('email');
       $password =  bcrypt($request->input('password'));
 
+
       $admin = new Admin();
       $admin->firstname = $fname;
       $admin->lastname = $lname;
       $admin->email = $email;
       $admin->password = $password;
 
-      $admin->save();
+      //$admin->save();
 
       auth()->login($admin);
-      /*
-      DB::insert('insert into admins
-                      (firstname, lastname, email, password) values (?, ?, ?, ?)',
-                      [$fname,$lname,$email,$password]);
-                      */
 
+      DB::select('CALL addAdmin(?, ?, ?, ?)',[$fname,$lname,$email,$password]);
+
+
+      /*DB::insert('insert into admins
+                      (firstname, lastname, email, password) values (?, ?, ?, ?)',
+                      [$fname,$lname,$email,$password]);*/
 
       return view('admin.dashboard', ['admin' => $admin]);
     }
