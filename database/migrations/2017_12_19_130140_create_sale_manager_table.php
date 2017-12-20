@@ -14,9 +14,9 @@ class CreateSaleManagerTable extends Migration
     {
       Schema::create('sales_managers', function (Blueprint $table) {
           $table->increments('id');
+          $table->integer('userID');
           $table->string('sName');
           $table->string('email')->unique();
-          $table->integer('userID');
           $table->rememberToken();
           $table->timestamps();
       });
