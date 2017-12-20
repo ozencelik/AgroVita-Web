@@ -1,8 +1,4 @@
-@extends('layouts.master')
-
-@section('title')
-    Laravel Shopping Cart
-@endsection
+@extends('layouts.app')
 
 @section('content')
     @if(Session::has('cart'))
@@ -11,13 +7,13 @@
                 <ul class="list-group">
                     @foreach($products as $product)
                             <li class="list-group-item">
-                                <span class="badge">{{ $product['qty'] }}</span>
-                                <strong>{{ $product['item']['title'] }}</strong>
-                                <span class="label label-success">{{ $product['price'] }}</span>
+                                <span class="badge">{{ $product['qty'] }}</span>&nbsp;
+                                &nbsp;<strong>{{ $product['item']['proName'] }}</strong>&nbsp;
+                                &nbsp;<span class="label label-success">{{ $product['price'] }} $</span>&nbsp;&nbsp;&nbsp;
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-primary btn-xs dropdown-toogle" data-toggle="dropdown">Action <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ route('product.reduceByOne', ['id' => $product['item']['id']]) }}">Reduce by 1</a></li>
+                                        <li><a href="{{ route('product.reduceByOne', ['id' => $product['item']['id']]) }}">Reduce It</a></li>
                                         <li><a href="{{ route('product.remove', ['id' => $product['item']['id']]) }}">Reduce All</a></li>
                                     </ul>
                                 </div>

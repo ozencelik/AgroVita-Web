@@ -1,8 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title')
-    Laravel Shopping Cart
-@endsection
 
 @section('content')
     <div class="row">

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
@@ -13,7 +13,7 @@
                             @foreach($order->cart->items as $item)
                                 <li class="list-group-item">
                                     <span class="badge">${{ $item['price'] }}</span>
-                                    {{ $item['item']['title'] }} | {{ $item['qty'] }} Units
+                                    {{ $item['item']['proName'] }} | {{ $item['qty'] }} Units
                                 </li>
                             @endforeach
                         </ul>

@@ -36,8 +36,17 @@ class AdminAuth extends Controller
       $this->middleware('guest:admin', ['except' => ['logout']]);
     }
 
+    public function getLogin()
+    {
+      return view('admin.login');
+    }
+
     public function login(Request $request)
     {
+      $this->validate($request, [
+          'email' => 'email|required|unique:users',
+          'password' => 'required|min:4'
+      ]);
 
       if(Auth::guard('admin')->attempt(['email' => $request['email'], 'password' => $request['password']], $request['remember'])){
 
@@ -46,7 +55,6 @@ class AdminAuth extends Controller
       }
       return view('admin.login');
       //return redirect()->back()->withInput($request->only('email', 'remember'));
-
     }
 
     public function logout()
@@ -61,9 +69,17 @@ class AdminAuth extends Controller
 
     public function register(Request $request)
     {
+
       if(Auth::guard('admin')->check()){
         return redirect('/admin/dashboard');
       }
+
+      $this->validate($request, [
+          'email' => 'email|required|unique:users',
+          'password' => 'required|min:4'
+      ]);
+
+
       $fname =  $request->input('firstname');
       $lname =  $request->input('lastname');
       $email =  $request->input('email');

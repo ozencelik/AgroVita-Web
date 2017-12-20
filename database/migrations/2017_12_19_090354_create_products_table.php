@@ -13,8 +13,11 @@ class CreateProductsTable extends Migration
     public function up()
     {
       Schema::create('products', function (Blueprint $table) {
-          $table->increments('proID');
+          $table->increments('id');
           $table->string('proName');
+          $table->string('imagePath');
+          $table->text('description');
+          $table->integer('price');
           $table->integer('typeID');
           $table->double('unit', 8, 2);
           $table->integer('unitID');
