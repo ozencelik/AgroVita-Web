@@ -20,8 +20,8 @@ class CreateAdvertisementTable extends Migration
             $table->string('advExplanation');
             $table->integer('sectorID');
             $table->integer('unitID');
-            $table->date('close_year');
-            $table->date('start_year');
+            $table->date('close_date');
+            $table->date('start_date');
             $table->rememberToken();
             $table->timestamps();
           });
